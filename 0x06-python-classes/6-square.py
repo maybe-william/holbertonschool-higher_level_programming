@@ -6,7 +6,7 @@ Define a square
 """
 
 
-class square:
+class Square:
     """A square
 
     Represent a square
@@ -54,9 +54,9 @@ class square:
 
         """
 
-        if type(size) != int:
+        if type(i) != int:
             raise TypeError("size must be an integer")
-        if size < 0:
+        if i < 0:
             raise ValueError("size must be >= 0")
 
     def __init__(self, size=0, position=(0, 0)):
@@ -73,11 +73,12 @@ class square:
             ValueError
 
         """
-        __verify_int(size)
+        Square.__verify_int(size)
         self.__size = size
-        __verify_tuple(position)
+        Square.__verify_tuple(position)
         self.__position = position
 
+    @property
     def size(self):
         """size getter
 
@@ -92,9 +93,10 @@ class square:
 
         """
 
-        __verify_int(self.__size)
+        Square.__verify_int(self.__size)
         return self.__size
 
+    @size.setter
     def size(self, value):
         """size setter
 
@@ -109,9 +111,10 @@ class square:
 
         """
 
-        __verify_int(value)
+        Square.__verify_int(value)
         self.__size = value
 
+    @property
     def position(self):
         """position getter
 
@@ -125,9 +128,10 @@ class square:
 
         """
 
-        __verify_tuple(self.__position)
+        Square.__verify_tuple(self.__position)
         return self.__position
 
+    @position.setter
     def position(self, value):
         """position setter
 
@@ -141,7 +145,7 @@ class square:
 
         """
 
-        __verify_tuple(value)
+        Square.__verify_tuple(value)
         self.__position = value
 
     def area(self):
@@ -166,7 +170,7 @@ class square:
         if self.__size == 0:
             print()
             return
-        for x in range(0, self.__position[0]):
+        for x in range(0, self.__position[1]):
             print()
         for i in range(0, self.__size):
-            print((" " * self.__position[1]) + ("#" * self.__size))
+            print((" " * self.__position[0]) + ("#" * self.__size))

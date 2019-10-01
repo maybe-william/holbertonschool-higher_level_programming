@@ -6,7 +6,7 @@ Define a square
 """
 
 
-class square:
+class Square:
     """A square
 
     Represent a square
