@@ -1,33 +1,15 @@
 #!/usr/bin/python3
-"""0-square
-
-Define a square
-
-"""
+"""Define a square"""
 
 
 class Square:
-    """A square
-
-    Represent a square
-
-    """
+    """A square"""
 
     __size = None
     __position = None
 
     def __verify_tuple(t):
-        """verify tuple method
-
-        Verify t is two ints not less than 0
-
-        Args:
-            t: the tuple
-
-        Raises:
-            TypeError
-
-        """
+        """Verify t is two ints not less than 0"""
 
         err = TypeError("position must be a tuple of 2 positive integers")
 
@@ -41,18 +23,7 @@ class Square:
             raise err
 
     def __verify_int(i):
-        """verify int method
-
-        Verify int and >= 0
-
-        Args:
-            i: the int
-
-        Raises:
-            TypeError
-            ValueError
-
-        """
+        """Verify i is int and >= 0"""
 
         if type(i) != int:
             raise TypeError("size must be an integer")
@@ -60,19 +31,7 @@ class Square:
             raise ValueError("size must be >= 0")
 
     def __init__(self, size=0, position=(0, 0)):
-        """init method
-
-        Initialize a square
-
-        Args:
-            size: the size of the square
-            position: the x, y position of the square
-
-        Raises:
-            TypeError
-            ValueError
-
-        """
+        """Initialize a square"""
         Square.__verify_int(size)
         self.__size = size
         Square.__verify_tuple(position)
@@ -80,92 +39,39 @@ class Square:
 
     @property
     def size(self):
-        """size getter
-
-        Give the size
-
-        Returns:
-            the size
-
-        Raises:
-            TypeError
-            ValueError
-
-        """
+        """Give the size"""
 
         Square.__verify_int(self.__size)
         return self.__size
 
     @size.setter
     def size(self, value):
-        """size setter
-
-        Set the size
-
-        Args:
-            value: the value to set
-
-        Raises:
-            TypeError
-            ValueError
-
-        """
+        """Set the size"""
 
         Square.__verify_int(value)
         self.__size = value
 
     @property
     def position(self):
-        """position getter
-
-        Get the position
-
-        Returns:
-            the position
-
-        Raises:
-            TypeError
-
-        """
+        """Get the position"""
 
         Square.__verify_tuple(self.__position)
         return self.__position
 
     @position.setter
     def position(self, value):
-        """position setter
-
-        Set the position
-
-        Args:
-            value: the value to set
-
-        Raises:
-            TypeError
-
-        """
+        """Set the position"""
 
         Square.__verify_tuple(value)
         self.__position = value
 
     def area(self):
-        """area method
-
-        Get the area
-
-        Returns:
-            the area
-
-        """
+        """Get the area"""
 
         return self.__size * self.__size
 
     def my_print(self):
-        """printing method
-
-        Print the square to stdout
-
-        """
+        """Print the square to stdout"""
 
         if self.__size == 0:
             print()
