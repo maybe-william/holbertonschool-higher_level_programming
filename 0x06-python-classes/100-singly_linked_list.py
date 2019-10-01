@@ -48,7 +48,7 @@ class Node:
         if type(n) != Node and n is not None:
             raise TypeError("next_node must be a Node object")
 
-    def __init__(self, data=0, next_node=None):
+    def __init__(self, data, next_node=None):
         """init function
 
         Inits
@@ -167,12 +167,12 @@ class SinglyLinkedList:
         string = ""
         temp = self.__head
         if temp is None:
-            string = "\n"
+            string = ""
             return string
         while temp is not None:
             string = string + str(temp.data) + "\n"
             temp = temp.next_node
-        return string
+        return string[:-1]
 
     def sorted_insert(self, value):
         """sorted_insert function
