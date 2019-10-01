@@ -48,7 +48,7 @@ class Node:
         if type(n) != Node and n is not None:
             raise TypeError("next_node must be a Node object")
 
-    def __init__(self, data, next_node=None):
+    def __init__(self, data=0, next_node=None):
         """init function
 
         Inits
