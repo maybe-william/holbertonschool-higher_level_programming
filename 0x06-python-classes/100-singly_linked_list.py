@@ -5,13 +5,14 @@ Define a linked list
 
 """
 
+
 class Node:
     """A node in a Linked list
 
     Represent a Node
 
     """
-    
+
     __data = None
     __next_node = None
 
@@ -172,7 +173,6 @@ class SinglyLinkedList:
             string = string + str(temp.data) + "\n"
             temp = temp.next_node
         return string
-
 
     def sorted_insert(self, value):
         """sorted_insert function
