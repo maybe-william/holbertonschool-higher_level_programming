@@ -1,0 +1,19 @@
+>>> t = __import__('5-text_indentation').text_indentation
+>>> t(".:?")
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+?
+<BLANKLINE>
+>>> t("text\n")
+text
+>>> t("x")
+x
+>>> t("y.x.z.")
+y.
+<BLANKLINE>
+x.
+<BLANKLINE>
+z.
+<BLANKLINE>

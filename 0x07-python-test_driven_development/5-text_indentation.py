@@ -8,8 +8,8 @@ def rmchr(txt, char):
     ret = ""
     tup = tempstr.partition(char)
     while tup[1] != "":
-        ret = ret + tup[0].rstrip() + tup[1] + "\n\n"
-        tempstr = tup[2].lstrip()
+        ret = ret + tup[0].rstrip("\t\v\f ") + tup[1] + "\n\n"
+        tempstr = tup[2].lstrip("\t\v\f ")
         tup = tempstr.partition(char)
     ret = ret + tempstr
     return ret

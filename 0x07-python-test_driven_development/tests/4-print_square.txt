@@ -1,0 +1,27 @@
+>>> p = __import__('4-print_square').print_square
+>>> p(4)
+####
+####
+####
+####
+>>> p(0)
+<BLANKLINE>
+>>> p(1)
+#
+>>> p(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+>>> p("q")
+Traceback (most recent call last):
+TypeError: size must be an integer
+>>> p(-4)
+Traceback (most recent call last):
+ValueError: size must be >= 0

@@ -8,13 +8,22 @@ def matrix_divided(matrix, div):
     rowerr = "Each row of the matrix must have the same size"
     numerr = "div must be a number"
     zeroerr = "division by zero"
-    if type(matrix) is not list:
-        pass
-    if type(matrix[0]) is not list:
-        pass
-    if type(matrix[0][0]) is not int and type(matrix[0][0]) is not float:
-        pass
+    if type(matrix) is not list or len(matrix) == 0:
+        raise TypeError(materr)
+    llen = None
+    for r in matrix:
+        if type(r) is not list:
+            raise TypeError(materr)
+        if llen is None:
+            llen = len(r)
+        if len(r) != llen:
+            raise TypeError(rowerr)
+        for item in r:
+            if type(item) is not int and type(item) is not float:
+                raise TypeError(materr)
     if type(div) is not int and type(div) is not float:
-        pass
+        raise TypeError(numerr)
     if div == 0:
-        pass
+        raise ZeroDivisionError(zeroerr)
+
+    return [[ round(j / div, 2) for j in i] for i in matrix]
