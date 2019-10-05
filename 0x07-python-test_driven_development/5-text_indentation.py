@@ -14,6 +14,7 @@ def rmchr(txt, char):
     ret = ret + tempstr
     return ret
 
+
 def text_indentation(text):
     """ Indent the text after ? . or : """
     if type(text) is not str:
