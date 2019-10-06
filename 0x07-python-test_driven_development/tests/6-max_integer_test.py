@@ -11,17 +11,29 @@ class TestMaxInteger(unittest.TestCase):
         """ test empty list """
         self.assertIs(max_integer([]), None)
 
-#    #def test_nonlist(self):
-#        #""" test not list type """
-#        #self.assertRaises(TypeError, max_integer, ["aasdf"])
+    def test_end(self):
+        """ test empty list """
+        self.assertIs(max_integer([1, 2, 3]), 3)
+
+    def test_beginning(self):
+        """ test empty list """
+        self.assertIs(max_integer([3, 2, 1]), 3)
+
+    def test_middle(self):
+        """ test empty list """
+        self.assertIs(max_integer([1, 3, 2]), 3)
+
+    def test_negative(self):
+        """ test empty list """
+        self.assertIs(max_integer([2, 3, -4]), 3)
+
+    def test_all_negative(self):
+        """ test empty list """
+        self.assertIs(max_integer([-2, -3, -4]), 2)
 
     def test_samelist(self):
         """ test same list """
         self.assertEqual(max_integer([3, 3, 3]), 3)
-
-#    #def test_notallints(self):
-#        #""" test list with not all ints """
-#        #self.assertRaises(TypeError, max_integer, [[3, 4, "5"]])
 
     def test_oneitem(self):
         """ test a list with only one item """
