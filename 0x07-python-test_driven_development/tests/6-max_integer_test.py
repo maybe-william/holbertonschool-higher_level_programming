@@ -29,7 +29,7 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_all_negative(self):
         """ test empty list """
-        self.assertEqual(max_integer([-2, -3, -4]), 2)
+        self.assertEqual(max_integer([-2, -3, -4]), -2)
 
     def test_samelist(self):
         """ test same list """
