@@ -5,8 +5,6 @@
 class Rectangle:
     """ A rectangle """
 
-    __width = None
-
     def __verify_int(self, value, tp):
         """ Verify an int """
         if type(value) is not int:

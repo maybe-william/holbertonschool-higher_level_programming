@@ -8,8 +8,6 @@ class Rectangle:
     number_of_instances = 0
     """ The number of rectangle instances in existence """
 
-    __width = None
-
     def __verify_int(self, value, tp):
         """ Verify an int """
         if type(value) is not int:
