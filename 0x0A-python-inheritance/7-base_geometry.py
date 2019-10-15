@@ -9,8 +9,8 @@ class BaseGeometry():
         """ Validate an integer """
         if type(value) is not int:
             raise TypeError(str(name) + " must be an integer")
-        if value < 0:
-            raise TypeError(str(name) + " must be greater than 0")
+        if value <= 0:
+            raise ValueError(str(name) + " must be greater than 0")
 
     def area(self):
         """ Give the area """

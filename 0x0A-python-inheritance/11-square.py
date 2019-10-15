@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Square """
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
@@ -7,9 +8,9 @@ class Square(Rectangle):
 
     def __init__(self, size):
         """ Init """
+        super().__init__(size, size)
         self.__size = size
-        Rectangle(size, size)
 
-    def str(self):
+    def __str__(self):
         """ Return a string representation to be printed """
         return "[Square] {}/{}".format(self.__size, self.__size)

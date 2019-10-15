@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Full rectangle """
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Rectangle(BaseGeometry):
@@ -16,6 +17,6 @@ class Rectangle(BaseGeometry):
         """ Get the area """
         return self.__width * self.__height
 
-    def str(self):
+    def __str__(self):
         """ Create a string representation to be printed """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
