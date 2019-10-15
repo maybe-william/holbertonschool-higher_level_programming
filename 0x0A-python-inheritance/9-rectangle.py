@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+""" Full rectangle """
+
+
+class Rectangle(BaseGeometry):
+    """ The rectangle class """
+
+    def __init__(self, width, height):
+        """ Init """
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
+
+    def area(self):
+        """ Get the area """
+        return self.__width * self.__height
+
+    def str(self):
+        """ Create a string representation to be printed """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
