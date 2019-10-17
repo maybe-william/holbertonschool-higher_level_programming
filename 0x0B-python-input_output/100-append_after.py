@@ -10,6 +10,7 @@ def readstuff(filename=""):
         x = f.readlines()
         return x
 
+
 def append_after(filename="", search_string="", new_string=""):
     """ Append new_string after line with search string """
     x = readstuff(filename)
