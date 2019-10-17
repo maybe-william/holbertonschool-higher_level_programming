@@ -24,7 +24,6 @@ def printLog():
     x = sorted(Dat.status.keys())
     for k in x:
         print(str(k) + ": " + str(Dat.status[k]))
-    Dat.status = {}
 
 
 count = 0
