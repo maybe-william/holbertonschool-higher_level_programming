@@ -6,7 +6,7 @@ import signal
 
 def signal_handler(sig, frame):
     printLog()
-
+    raise KeyboardInterrupt
 
 signal.signal(signal.SIGINT, signal_handler)
 
