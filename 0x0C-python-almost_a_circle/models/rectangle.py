@@ -5,66 +5,99 @@
 class Rectangle (Base):
     """class: Rectangle"""
 
+    def val_int(self, name, val, vs=">"):
+        """Validate an int and throw an error if something's wrong"""
+        if type(val) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if vs == ">" and val <= 0:
+            raise ValueError("{} must be {} 0".format(name, vs))
+        if vs == ">=" and val < 0:
+            raise ValueError("{} must be {} 0".format(name, vs))
+
     def __str__(self):
         """Return a str representation of the object"""
-        pass
+        name = "[Rectangle]"
+        dat = " ({}) {}/{}".format(self.id, self.x, self.y)
+        dat2 = " - {}/{}".format(self.width, self.height)
+        return name + dat + dat2
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """Init"""
-        pass
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+        super().__init__(id)
 
     @property
     def width(self):
         """Get width"""
-        pass
+        return self.__width
 
     @width.setter
     def width(self, value):
         """Set width"""
-        pass
+        self.val_int("width", value)
+        self.__width = value
 
     @property
     def height(self):
         """Get height"""
-        pass
+        return self.__height
 
     @height.setter
     def height(self, value):
         """Set height"""
-        pass
+        self.val_int("height", value)
+        self.__height = value
 
     @property
     def x(self):
         """Get height"""
-        pass
+        return self.__x
 
     @x.setter
     def x(self, value):
         """Set height"""
-        pass
+        self.val_int("x", value, ">=")
+        self.__x = value
 
     @property
     def y(self):
         """Get y"""
-        pass
+        return self.__y
 
     @y.setter
     def y(self, value):
         """Set y"""
-        pass
+        self.val_int("y", value, ">=")
+        self.__y = value
 
     def area(self):
         """Return the area"""
-        pass
+        return self.x * self.y
 
     def to_dictionary(self):
         """Return the dictionary representation of this object"""
-        pass
+        return vars(self)
 
     def update(self, *args, **kwargs):
         """Update the attributes of this object"""
-        pass
+        if args is not None and args != []:
+            self.width = args[0]
+            self.height = args[1]
+            self.x = args[2]
+            self.y = args[3]
+        elif kwargs is not None and kwargs != {}:
+            for k, v in kwargs.items():
+                setattr(self, k, v)
 
     def display(self):
         """Print a representation of this object to stdout"""
-        pass
+        rep = ""
+        front = (" " * self.x)
+        rep = rep + ("\n" * self.y)
+        line = ("#" * self.width) + "\n"
+
+        rep = rep + ((front + line) * self.height)
+        print(rep, end="")
