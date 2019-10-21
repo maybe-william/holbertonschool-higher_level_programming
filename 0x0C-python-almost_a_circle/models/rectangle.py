@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """module: models"""
+import models.base
+Base = models.base.Base
 
 
 class Rectangle (Base):
@@ -79,15 +81,20 @@ class Rectangle (Base):
 
     def to_dictionary(self):
         """Return the dictionary representation of this object"""
-        return vars(self)
+        tmp = {}
+        x = vars(self)
+        for k, v in x.items():
+            tmp[k.split('__')[-1]] = v
+        return tmp
 
     def update(self, *args, **kwargs):
         """Update the attributes of this object"""
-        if args is not None and args != []:
-            self.width = args[0]
-            self.height = args[1]
-            self.x = args[2]
-            self.y = args[3]
+        if args is not None and args != ():
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
         elif kwargs is not None and kwargs != {}:
             for k, v in kwargs.items():
                 setattr(self, k, v)

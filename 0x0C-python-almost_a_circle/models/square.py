@@ -1,5 +1,9 @@
 #!/usr/bin/python3
 """module: models"""
+import models.base
+import models.rectangle
+Base = models.base.Base
+Rectangle = models.rectangle.Rectangle
 
 
 class Square (Rectangle):
@@ -19,7 +23,7 @@ class Square (Rectangle):
     @property
     def size(self):
         """Get size"""
-        return self.width()
+        return self.width
 
     @size.setter
     def size(self, value):
@@ -27,13 +31,9 @@ class Square (Rectangle):
         self.width = value
         self.height = value
 
-    def to_dictionary(self):
-        """Return the dictionary representation of this object"""
-        return vars(self)
-
     def update(self, *args, **kwargs):
         """Update the attributes of this object"""
-        if args is not None and args != []:
+        if args is not None and args != ():
             self.id = args[0]
             self.size = args[1]
             self.x = args[2]

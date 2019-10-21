@@ -11,19 +11,19 @@ class Base:
 
     def __init__(self, id=None):
         """Init"""
-        Base.__nb_objects = Base.__nb_objects + 1
         if id is not None:
             self.id = id
         else:
+            Base.__nb_objects = Base.__nb_objects + 1
             self.id = Base.__nb_objects
 
     @classmethod
     def create(cls, **dictionary):
         """Return an instance of cls with attributes already set"""
-        if cls is Rectangle:
-            x = Rectangle(1, 1, 1, 1)
-        elif cls is Square:
-            x = Square(1, 1, 1)
+        if cls.__name__ == "Rectangle":
+            x = cls(1, 1, 1, 1)
+        elif cls.__name__ == "Square":
+            x = cls(1, 1, 1)
         else:
             return None
         x.update(**dictionary)
@@ -46,7 +46,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Save list of objs to file in json form"""
-        j = Base.to_json_string([var(x) for x in list_objs])
+        j = Base.to_json_string([x.to_dictionary() for x in list_objs])
         with open(cls.__name__ + ".json", "w+") as f:
             f.write(j)
 
@@ -54,22 +54,23 @@ class Base:
     def load_from_file(cls):
         """Load list of objs from file in json form"""
         with open(cls.__name__ + ".json", "r+") as f:
-            j = f.readlines
+            j = f.readlines()
         dicts = Base.from_json_string("".join(j))
-        return [cls.create(**dicts)]
+        return list(map(lambda x: (cls.create(**x)), dicts))
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Save list of objs to file in csv form"""
-        if cls is Rectangle:
+        if cls.__name__ == "Rectangle":
             attrs = [[x.id, x.width, x.height, x.x, x.y] for x in list_objs]
-        elif cls is Square:
+        elif cls.__name__ == "Square":
             attrs = [[x.id, x.size, x.x, x.y] for x in list_objs]
         else:
             return
+        attrs = list(map(lambda x: (list(map(str, x))), attrs))
         with open(cls.__name__ + ".csv", "w+") as f:
             for dat in attrs:
-                f.write(",".join(attrs) + "\n")
+                f.write(",".join(dat) + "\n")
 
     @classmethod
     def load_from_file_csv(cls):
@@ -79,8 +80,9 @@ class Base:
         objs = []
         for dat in dats:
             d = dat.rstrip().split(",")
-            x = cls.create({})
-            x.update(d, None)
+            d = list(map(int, d))
+            x = cls.create()
+            x.update(*d)
             objs.append(x)
         return objs
 
