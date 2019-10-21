@@ -77,7 +77,7 @@ class Rectangle (Base):
 
     def area(self):
         """Return the area"""
-        return self.x * self.y
+        return self.width * self.height
 
     def to_dictionary(self):
         """Return the dictionary representation of this object"""
@@ -91,10 +91,14 @@ class Rectangle (Base):
         """Update the attributes of this object"""
         if args is not None and args != ():
             self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
+            if len(args) > 1:
+                self.width = args[1]
+            if len(args) > 2:
+                self.height = args[2]
+            if len(args) > 3:
+                self.x = args[3]
+            if len(args) > 4:
+                self.y = args[4]
         elif kwargs is not None and kwargs != {}:
             for k, v in kwargs.items():
                 setattr(self, k, v)

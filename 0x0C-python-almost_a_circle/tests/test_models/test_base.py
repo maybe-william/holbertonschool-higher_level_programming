@@ -77,7 +77,6 @@ class TestBase(unittest.TestCase):
         self.ae(self.sone.id, 5)
         self.ae(self.stwo.id, 90)
 
-
     def test_valint(self):
         """Test val_int works"""
         with self.ar(ValueError):
@@ -190,7 +189,6 @@ class TestBase(unittest.TestCase):
         os.remove("Rectangle.json")
         os.remove("Square.json")
 
-
     def test_savecsv_and_loadcsv(self):
         """Test save_to_file_csv and load_from_file_csv work"""
         rect = {"width": 5, "height": 3, "x": 2, "y": 1, "id": 20}
@@ -210,3 +208,19 @@ class TestBase(unittest.TestCase):
         self.ae(twos[0].size, mys.size + 1)
         os.remove("Rectangle.csv")
         os.remove("Square.csv")
+
+    def test_str(self):
+        """Test __str__ works"""
+        self.ae(str(self.rone), "[Rectangle] (3) 0/0 - 1/1")
+        self.ae(str(self.rtwo), "[Rectangle] (35) 2/1 - 2/4")
+        self.ae(str(self.rfour), "[Rectangle] (4) 0/0 - 10/20")
+        self.ae(str(self.sone), "[Square] (5) 0/3 - 5")
+        self.ae(str(self.stwo), "[Square] (90) 0/4 - 3")
+
+    def test_area(self):
+        """Test area works"""
+        self.ae(self.rone.area(), 1)
+        self.ae(self.rtwo.area(), 8)
+        self.ae(self.rfour.area(), 200)
+        self.ae(self.sone.area(), 25)
+        self.ae(self.stwo.area(), 9)

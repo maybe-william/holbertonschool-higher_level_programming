@@ -31,13 +31,23 @@ class Square (Rectangle):
         self.width = value
         self.height = value
 
+    def to_dictionary(self):
+        """Return a dictionary representation of this object"""
+        d = super().to_dictionary()
+        r = {k: v for k, v in d.items() if k != "height" and k != "width"}
+        r["size"] = d["width"]
+        return r
+
     def update(self, *args, **kwargs):
         """Update the attributes of this object"""
         if args is not None and args != ():
             self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-            self.y = args[3]
+            if len(args) > 1:
+                self.size = args[1]
+            if len(args) > 2:
+                self.x = args[2]
+            if len(args) > 3:
+                self.y = args[3]
         elif kwargs is not None and args != {}:
             for k, v in kwargs.items():
                 setattr(self, k, v)
