@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module: models"""
 import json
+import turtle
 
 
 class Base:
@@ -89,4 +90,18 @@ class Base:
     @staticmethod
     def draw(list_rectangles, list_squares):
         """Using the turtle library, draw all rectangles and squares"""
-        pass
+        turtle.Screen()
+        turtle.speed(10)
+        tot = list_rectangles + list_squares
+        for obj in tot:
+            p1 = (obj.x, obj.y)
+            p2 = (obj.x + obj.width, obj.y)
+            p3 = (obj.x + obj.width, obj.y + obj.height)
+            p4 = (obj.x, obj.y + obj.height)
+            turtle.up()
+            turtle.setpos(p1)
+            turtle.down()
+            turtle.setpos(p2)
+            turtle.setpos(p3)
+            turtle.setpos(p4)
+            turtle.setpos(p1)
