@@ -20,17 +20,17 @@ class TestRectangle(unittest.TestCase):
         y = models.rectangle.__file__
         z = models.square.__file__
         cls.err = True
-        f = True
+        p = True
         with open(x, 'r') as f:
             if "\"\"\"" not in f.read():
-                f = False
+                p = False
         with open(y, 'r') as f:
             if "\"\"\"" not in f.read():
-                f = False
+                p = False
         with open(z, 'r') as f:
             if "\"\"\"" not in f.read():
-                f = False
-        cls.err = f
+                p = False
+        cls.err = p
 
     def setUp(self):
         """Set up before each test"""

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# comment
 """module: models"""
 import models.base
 Base = models.base.Base
