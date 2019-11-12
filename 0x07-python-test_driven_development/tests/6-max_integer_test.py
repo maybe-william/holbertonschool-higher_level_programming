@@ -12,7 +12,7 @@ class TestMaxInteger(unittest.TestCase):
     def setUpClass(cls):
         """ class setup """
         with open(m2.__file__, "r") as f:
-            if "Module" in f.read():
+            if "Modules" in f.read():
                 cls.err = True
             else:
                 cls.err = False
