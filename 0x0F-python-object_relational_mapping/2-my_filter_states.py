@@ -11,6 +11,7 @@ if __name__ == '__main__':
 
     cur = sql.cursor()
     s = "SELECT * FROM states WHERE name IS '{}' ORDER BY id".format(argv[4])
+    s = s + " ASC"
     cur.execute(s)
     rows = cur.fetchall()
     for row in rows:
