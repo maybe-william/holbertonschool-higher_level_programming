@@ -10,8 +10,8 @@ if __name__ == '__main__':
                           user=argv[1], passwd=argv[2], db=argv[3])
 
     cur = sql.cursor()
-    cur.execute("SELECT * FROM states WHERE name IS '{}' ORDER BY id ASC"
-                .format(argv[4]))
+    s = "SELECT * FROM states WHERE name IS '{}' ORDER BY id".format(argv[4])
+    cur.execute(s)
     rows = cur.fetchall()
     for row in rows:
         if row[1][0] == argv[4]:
