@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     cur = sql.cursor()
     cur.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cur.fetch_all()
+    rows = cur.fetchall()
     for row in rows:
         print(row)
     cur.close()
