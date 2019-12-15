@@ -12,7 +12,7 @@ if __name__ == '__main__':
     cur = sql.cursor()
     cur.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
     rows = cur.fetchall()
-    if rows is not None:
+    if len(rows) > 0:
         for row in rows:
             print(row)
     cur.close()
