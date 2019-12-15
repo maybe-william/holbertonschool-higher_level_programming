@@ -1,9 +1,7 @@
 #!/usr/bin/python3
+""" The first state model """
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-
-""" The first state model """
-
 
 Base = declarative_base()
 """ The Base variable """
