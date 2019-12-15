@@ -10,8 +10,8 @@ if __name__ == '__main__':
                           user=argv[1], passwd=argv[2], db=argv[3])
 
     cur = sql.cursor()
-
-    s = "SELECT * FROM cities ORDER BY id ASC"
+    s = "SELECT c.id, c.name, s.name FROM cities c LEFT JOIN states s"
+    s = s + " ON c.state_id = s.id ORDER BY c.id ASC"
     cur.execute(s)
     rows = cur.fetchall()
     for row in rows:
