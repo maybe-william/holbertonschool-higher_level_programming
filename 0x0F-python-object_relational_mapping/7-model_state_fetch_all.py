@@ -14,10 +14,10 @@ if __name__ == "__main__":
 
     from sqlalchemy.orm import sessionmaker
 
-    Session = sessionmaker
+    Session = sessionmaker()
     Session.configure(bind=engine)
     session = Session()
 
     q = session.query(State).order_by(State.id)
     for row in q.all():
-        print(row)
+        print(str(row.id) + ": " + str(row.name))
