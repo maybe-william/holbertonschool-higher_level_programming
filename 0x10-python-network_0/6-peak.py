@@ -34,6 +34,7 @@ def find_peak(list_of_integers):
             if dir1 > 0 and dir2 < 0:
                 if (not max_peak) or (x > max_peak):
                     max_peak = x
+                    return x
     if (not max_peak):
         x = list_of_integers[0]
         y = list_of_integers[-1]
