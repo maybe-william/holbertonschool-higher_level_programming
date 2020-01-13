@@ -16,6 +16,6 @@ if __name__ == "__main__":
     else:
         try:
             j = resp.json()
-            print("[{}] {}".format(j['id'], j['name']))
+            print("[{}] {}".format(j.get('id', ''), j.get('name', '')))
         except:
             print('Not a valid JSON')
