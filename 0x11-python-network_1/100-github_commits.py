@@ -6,8 +6,8 @@ from requests.auth import HTTPBasicAuth
 import sys
 
 if __name__ == '__main__':
-    own = sys.argv[1] + '/'
-    repo = sys.argv[2] + '/'
+    own = sys.argv[2] + '/'
+    repo = sys.argv[1] + '/'
     comm = 'commits'
     resp = requests.get('https://api.github.com/repos/' + own + repo + comm)
     j = resp.json()
@@ -17,4 +17,4 @@ if __name__ == '__main__':
     if type(j) != list and j.get('message', '') == 'Not Found':
         exit()
     for i in j[:limit]:
-        print(i['sha'] + ': ' + i['commit']['committer']['name'])
+        print(i['sha'] + ': ' + i['commit']['author']['name'])
