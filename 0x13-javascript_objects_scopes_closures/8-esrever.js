@@ -2,6 +2,6 @@
 
 exports.esrever = function (arr) {
   const i = arr.slice(0);
-  i.reverse();
-  return i;
+
+  return i.reduceRight((ar, item) => (ar.push(item) ? ar : ar), []);
 };
