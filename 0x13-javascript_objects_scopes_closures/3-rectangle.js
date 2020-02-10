@@ -9,7 +9,6 @@ class Rectangle {
   }
 
   print () {
-    var self = this;
     const x = self.width;
     let y = self.height;
     while (y > 0) {
