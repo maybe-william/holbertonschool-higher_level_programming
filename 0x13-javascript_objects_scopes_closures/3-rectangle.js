@@ -9,8 +9,8 @@ class Rectangle {
   }
 
   print () {
-    const x = self.width;
-    let y = self.height;
+    const x = this.width;
+    let y = this.height;
     while (y > 0) {
       console.log('X'.repeat(x));
       y = y - 1;
