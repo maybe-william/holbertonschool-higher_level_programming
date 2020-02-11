@@ -1,4 +1,10 @@
 #!/usr/bin/node
-const { exec } = require('child_process');
+const fs = require('fs');
 
-exec('cat ' + process.argv[2] + ' ' + process.argv[3] + ' > ' + process.argv[4]);
+fs.readFile(process.argv[2], (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data.toString());
+  }
+});
