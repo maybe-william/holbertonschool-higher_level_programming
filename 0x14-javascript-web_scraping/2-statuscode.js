@@ -5,5 +5,5 @@ req(process.argv[2], function (error, resp, body) {
   if (error) {
     console.log(error);
   }
-  console.log(resp.statusCode.toString());
+  console.log('code: ' + resp.statusCode.toString());
 });
