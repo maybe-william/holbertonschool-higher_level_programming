@@ -1,6 +1,6 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', function () {
   function doThing () {
-    let lang = $('INPUT#language_code').val()
+    const lang = $('INPUT#language_code').val();
     $.get('https://fourtonfish.com/hellosalut/?lang=' + lang, function (x) {
       $('DIV#hello').text(x.hello);
     });

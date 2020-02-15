@@ -1,10 +1,10 @@
 $('HEADER').addClass('green');
 $('DIV#toggle_header').click(function () {
-  let x = $('HEADER');
+  const x = $('HEADER');
   let y = 'red';
   let z = 'green';
   if (x.hasClass('green')) {
-    let a = y;
+    const a = y;
     y = z;
     z = a;
   }
