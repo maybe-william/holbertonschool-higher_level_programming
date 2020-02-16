@@ -1,13 +1,3 @@
-$('HEADER').addClass('green');
-$('DIV#toggle_header').click(function () {
-  let x = $('HEADER');
-  let y = 'red';
-  let z = 'green';
-  if (x.hasClass('green')) {
-    let a = y;
-    y = z;
-    z = a;
-  }
-  x.removeClass(y);
-  x.addClass(z);
+$('DIV#add_item').click(function () {
+  $('UL.my_list').append('<li>Item</li>');
 });
